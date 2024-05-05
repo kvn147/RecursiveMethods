@@ -76,8 +76,17 @@ public class WritingRecursiveMethods {
      * @return the sum of the digits in number
      */
     public static int sumDigits(int number) {
-        return 0;
+        if (number < 0) {
+            throw new IllegalArgumentException(number + " is < 0");
+        }
 
+        if (number < 10) {
+            return number;
+        }
+
+        else {
+            return (number % 10) + sumDigits(number / 10);
+        }
     }
 
 
@@ -100,7 +109,17 @@ public class WritingRecursiveMethods {
      * Note: This is not an efficient way to solve this problem as we continually solve overlapping subproblems
      */
     public static String starString(int n) {
-        return "";
+        if (n < 0) {
+            throw new IllegalArgumentException(n + " is < 0");
+        }
+
+        if (n == 0) {
+            return "*";
+        }
+
+        else {
+            return starString(n - 1) + starString(n - 1);
+        }
     }
 
 
